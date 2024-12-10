@@ -1,0 +1,16 @@
+def findMinArrowShots(points):
+    # Arrays.sort(points, Comparator.comparingInt(p -> p[1]));
+    points.sort()
+    maxVal = 0
+    lastVal = float('-inf')
+    for p in points:
+        if lastVal < p[0]:
+            lastVal = p[1]
+            maxVal += 1
+        else:
+            lastVal = min(lastVal, p[1])
+    return maxVal
+
+
+points = [[10, 16], [2, 8], [1, 6], [7, 12]]
+print(findMinArrowShots(points)
